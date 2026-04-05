@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mãos Próximas - Voluntariado</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-top">
+            <div class="logo-area">
+                <div class="logo-icon"><i class="fa-solid fa-hands-holding-heart"><img src="logo.svg" width="40px" height="40px" alt="Logo"></i></div>
+                <h1>Mãos Próximas</h1>
+            </div>
+            <button class="btn-nova-vaga" onclick="window.location.href='cadastro.html'">
+                <i class="fa-solid fa-plus"></i> Nova Vaga
+            </button>
+        </div>
+        <p class="header-sub">Encontre onde você é necessário hoje.</p>
+        <nav class="header-nav">
+            <a href="#" class="nav-link active">Explorar</a>
+            <a href="#" class="nav-link">Salvos</a>
+            <a href="#" class="nav-link">Perfil</a>
+        </nav>
+    </header>
+
+    <section class="search-section">
+        <div class="search-box">
+            <i class="fa-solid fa-location-dot search-icon"></i>
+            <input type="text" placeholder="Sua localização (ex: Pinheiros, SP)">
+            <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+        
+        <div class="filters-container">
+            <button class="filter-chip active" data-filter="todos">
+                <i class="fa-solid fa-border-all"></i> Todos
+            </button>
+            <button class="filter-chip" data-filter="animal">
+                <i class="fa-solid fa-paw"></i> Animais
+            </button>
+            <button class="filter-chip" data-filter="educacao">
+                <i class="fa-solid fa-book-open"></i> Educação
+            </button>
+            <button class="filter-chip" data-filter="ambiente">
+                <i class="fa-solid fa-leaf"></i> Meio Ambiente
+            </button>
+            <button class="filter-chip" data-filter="cozinha">
+                <i class="fa-solid fa-utensils"></i> Cozinha Solidária
+            </button>
+        </div>
+    </section>
+
+    <main class="vagas-container">
+        <div class="section-header">
+            <h2>Vagas perto de você</h2>
+            <span class="vaga-count" id="vaga-count">0 vagas</span>
+        </div>
+        <div id="container-vagas" class="feed"></div>
+        <div class="empty-state" id="empty-state" style="display:none">
+            <i class="fa-regular fa-face-meh"></i>
+            <p>Nenhuma vaga encontrada nessa categoria.</p>
+        </div>
+    </main>
+
+    <nav class="bottom-nav">
+        <a href="#" class="nav-item active">
+            <i class="fa-solid fa-compass"></i>
+            <span>Explorar</span>
+        </a>
+        <a href="cadastro.html" class="nav-item nav-item-center">
+            <div class="nav-plus"><i class="fa-solid fa-plus"></i></div>
+        </a>
+        <a href="#" class="nav-item">
+            <i class="fa-regular fa-bookmark"></i>
+            <span>Salvos</span>
+        </a>
+    </nav>
+
+<script type="module" src="db.js"></script>
+<script type="module" src="script.js"></script>
+</body>
+</html>

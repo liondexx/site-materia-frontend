@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Vaga - Mãos Próximas</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+</head>
+<body class="cadastro-page">
+
+    <header class="main-header cadastro-header">
+        <div class="header-top">
+            <button class="btn-voltar" onclick="window.location.href='index.html'">
+                <i class="fa-solid fa-arrow-left"></i>
+            </button>
+            <div class="logo-area">
+                <div class="logo-icon"><i class="fa-solid fa-hands-holding-heart"></i></div>
+                <h1>Nova Vaga</h1>
+            </div>
+            <div style="width:40px"></div>
+        </div>
+        <p class="header-sub">Conecte voluntários à sua causa.</p>
+    </header>
+
+    <main class="cadastro-container">
+
+        <div class="form-progress">
+            <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+            <span class="progress-label" id="progress-label">Preencha os campos abaixo</span>
+        </div>
+
+        <div class="form-card">
+            <div class="form-section">
+                <div class="form-section-label"><i class="fa-solid fa-tag"></i> Categoria</div>
+                <div class="categoria-grid" id="categoria-grid">
+                    <button type="button" class="categoria-btn" data-categoria="Causa Animal" data-class="tag-animal" data-filter="animal">
+                        <i class="fa-solid fa-paw"></i><span>Animais</span>
+                    </button>
+                    <button type="button" class="categoria-btn" data-categoria="Educação" data-class="tag-educacao" data-filter="educacao">
+                        <i class="fa-solid fa-book-open"></i><span>Educação</span>
+                    </button>
+                    <button type="button" class="categoria-btn" data-categoria="Meio Ambiente" data-class="tag-ambiente" data-filter="ambiente">
+                        <i class="fa-solid fa-leaf"></i><span>Meio Ambiente</span>
+                    </button>
+                    <button type="button" class="categoria-btn" data-categoria="Cozinha Solidária" data-class="tag-cozinha" data-filter="cozinha">
+                        <i class="fa-solid fa-utensils"></i><span>Cozinha Solidária</span>
+                    </button>
+                    <button type="button" class="categoria-btn" data-categoria="Saúde" data-class="tag-saude" data-filter="saude">
+                        <i class="fa-solid fa-heart-pulse"></i><span>Saúde</span>
+                    </button>
+                    <button type="button" class="categoria-btn" data-categoria="Outros" data-class="tag-outros" data-filter="outros">
+                        <i class="fa-solid fa-ellipsis"></i><span>Outros</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <div class="form-section-label"><i class="fa-solid fa-pen-nib"></i> Informações da vaga</div>
+
+                <div class="field-group">
+                    <label class="field-label" for="titulo">Título da vaga *</label>
+                    <input class="field-input" type="text" id="titulo" placeholder="Ex: Passeio com cães de abrigo" maxlength="60">
+                    <span class="field-counter" id="titulo-counter">0/60</span>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label" for="descricao">Descrição *</label>
+                    <textarea class="field-input field-textarea" id="descricao" placeholder="Descreva a atividade, o que o voluntário vai fazer, e qualquer requisito importante..." maxlength="300" rows="4"></textarea>
+                    <span class="field-counter" id="desc-counter">0/300</span>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <div class="form-section-label"><i class="fa-solid fa-location-dot"></i> Local e data</div>
+
+                <div class="field-group">
+                    <label class="field-label" for="endereco">Endereço *</label>
+                    <div class="field-with-icon">
+                        <i class="fa-solid fa-map-marker-alt field-icon"></i>
+                        <input class="field-input has-icon" type="text" id="endereco" placeholder="Ex: Rua das Flores, 123 - Curitiba, PR">
+                    </div>
+                    <button type="button" class="btn-preview-map" id="btn-preview" onclick="previewMapa()">
+                        <i class="fa-solid fa-map"></i> Pré-visualizar no mapa
+                    </button>
+                    <div class="map-preview" id="map-preview">
+                        <iframe id="preview-iframe" src="" width="100%" height="160" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+
+                <div class="field-row">
+                    <div class="field-group">
+                        <label class="field-label" for="data-vaga">Quando *</label>
+                        <input class="field-input" type="text" id="data-vaga" placeholder="Ex: Sábados e domingos">
+                    </div>
+                    <div class="field-group">
+                        <label class="field-label" for="distancia">Distância</label>
+                        <input class="field-input" type="text" id="distancia" placeholder="Ex: 1.2 km">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="button" class="btn-cancelar" onclick="window.location.href='index.html'">Cancelar</button>
+                <button type="button" class="btn-publicar" id="btn-publicar" onclick="publicarVaga()">
+                    <i class="fa-solid fa-paper-plane"></i> Publicar Vaga
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <div class="toast" id="toast">
+        <i class="fa-solid fa-circle-check"></i>
+        <span>Vaga publicada com sucesso!</span>
+    </div>
+
+<script type="module">
+    import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
+
+    // Importa DB do db.js (que já exporta window.DB via module)
+    // Como db.js usa import, precisamos carregar ele como module também
+    const { default: dbModule } = await import('./db.js').catch(() => ({}))
+
+    let categoriaSelecionada = null
+    let categoriaClass = null
+    let categoriaFilter = null
+
+    // Seleção de categoria
+    document.querySelectorAll('.categoria-btn').forEach(btn => {
+        btn.addEventListener('click', function () {
+            document.querySelectorAll('.categoria-btn').forEach(b => b.classList.remove('active'))
+            this.classList.add('active')
+            categoriaSelecionada = this.dataset.categoria
+            categoriaClass = this.dataset.class
+            categoriaFilter = this.dataset.filter
+            atualizarProgresso()
+        })
+    })
+
+    // Contadores de caracteres
+    const titulo = document.getElementById('titulo')
+    const descricao = document.getElementById('descricao')
+
+    titulo.addEventListener('input', function () {
+        document.getElementById('titulo-counter').textContent = `${this.value.length}/60`
+        atualizarProgresso()
+    })
+
+    descricao.addEventListener('input', function () {
+        document.getElementById('desc-counter').textContent = `${this.value.length}/300`
+        atualizarProgresso()
+    })
+
+    document.getElementById('endereco').addEventListener('input', atualizarProgresso)
+    document.getElementById('data-vaga').addEventListener('input', atualizarProgresso)
+
+    function atualizarProgresso() {
+        const campos = [
+            categoriaSelecionada,
+            titulo.value.trim(),
+            descricao.value.trim(),
+            document.getElementById('endereco').value.trim(),
+            document.getElementById('data-vaga').value.trim()
+        ]
+        const preenchidos = campos.filter(c => c && c.length > 0).length
+        const pct = Math.round((preenchidos / campos.length) * 100)
+        document.getElementById('progress-fill').style.width = pct + '%'
+        document.getElementById('progress-label').textContent = pct === 100 ? 'Pronto para publicar!' : `${pct}% preenchido`
+    }
+
+    window.previewMapa = function () {
+        const end = document.getElementById('endereco').value.trim()
+        if (!end) { alert('Digite um endereço primeiro.'); return }
+        const q = encodeURIComponent(end)
+        document.getElementById('preview-iframe').src = `https://maps.google.com/maps?q=${q}&output=embed&hl=pt-BR`
+        document.getElementById('map-preview').style.display = 'block'
+    }
+
+    window.publicarVaga = async function () {
+        const tituloVal    = titulo.value.trim()
+        const descricaoVal = descricao.value.trim()
+        const enderecoVal  = document.getElementById('endereco').value.trim()
+        const dataVal      = document.getElementById('data-vaga').value.trim()
+        const distanciaVal = document.getElementById('distancia').value.trim() || '—'
+
+        if (!categoriaSelecionada || !tituloVal || !descricaoVal || !enderecoVal || !dataVal) {
+            alert('Por favor, preencha todos os campos obrigatórios (*).')
+            return
+        }
+
+        const btnPublicar = document.getElementById('btn-publicar')
+        btnPublicar.disabled = true
+        btnPublicar.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Publicando...'
+
+        try {
+            const q = encodeURIComponent(enderecoVal)
+            const novaVaga = {
+                causa:     categoriaSelecionada,
+                tagClass:  categoriaClass,
+                filter:    categoriaFilter,
+                titulo:    tituloVal,
+                descricao: descricaoVal,
+                endereco:  enderecoVal,
+                mapUrl:    `https://maps.google.com/maps?q=${q}&output=embed&hl=pt-BR`,
+                data:      dataVal,
+                distancia: distanciaVal,
+            }
+
+            await window.DB.inserir(novaVaga)
+
+            document.getElementById('toast').classList.add('show')
+            setTimeout(() => { window.location.href = 'index.html' }, 1800)
+
+        } catch (err) {
+            console.error(err)
+            alert('Erro ao publicar a vaga. Tente novamente.')
+            btnPublicar.disabled = false
+            btnPublicar.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Publicar Vaga'
+        }
+    }
+</script>
+</body>
+</html>
