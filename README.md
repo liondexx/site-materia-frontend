@@ -1,7 +1,7 @@
 🤝 Site Matéria - Frontend
 O Site Matéria é uma plataforma dedicada a conectar causas sociais e pessoas dispostas a ajudar, facilitando a listagem e a visualização de vagas para voluntários.
 
-🚀 Confira o projeto online: Acesse o Site Matéria
+🚀 Confira o projeto online: https://site-materia-frontend-eys2.vercel.app/
 
 📝 Sobre o Projeto
 O principal objetivo desta aplicação é centralizar oportunidades de voluntariado, permitindo que organizações ou indivíduos divulguem suas necessidades de forma simples e que voluntários encontrem causas que ressoem com seus propósitos.
