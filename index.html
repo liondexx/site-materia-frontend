@@ -33,7 +33,9 @@
         <div class="search-box">
             <i class="fa-solid fa-location-dot search-icon"></i>
             <input type="text" placeholder="Sua localização (ex: Pinheiros, SP)">
-            <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <button type="button" class="search-btn" title="Pesquisar">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
         </div>
         
         <div class="filters-container">
@@ -61,7 +63,7 @@
             <span class="vaga-count" id="vaga-count">0 vagas</span>
         </div>
         <div id="container-vagas" class="feed"></div>
-        <div class="empty-state" id="empty-state" style="display:none">
+        <div class="empty-state" id="empty-state">
             <i class="fa-regular fa-face-meh"></i>
             <p>Nenhuma vaga encontrada nessa categoria.</p>
         </div>
@@ -72,7 +74,7 @@
             <i class="fa-solid fa-compass"></i>
             <span>Explorar</span>
         </a>
-        <a href="cadastro.html" class="nav-item nav-item-center">
+        <a href="cadastro.html" class="nav-item nav-item-center" title="Nova vaga">
             <div class="nav-plus"><i class="fa-solid fa-plus"></i></div>
         </a>
         <a href="#" class="nav-item">
